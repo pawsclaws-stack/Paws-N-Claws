@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal | Paws N' Claws</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🐾 Paws N' Claws</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="login.html" class="cta-btn">Login / Signup</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-content" style="max-width: 1400px;">
+        
+        <!-- THE LOGIN PANEL -->
+        <div id="login-screen">
+            <h1>Staff & Client Portal</h1>
+            <p style="margin-bottom: 25px;">Enter your credentials to unlock your active walk tracker dashboard.</p>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; max-width: 400px; margin: 0 auto; border: 1px solid #e2e8f0;">
+                <div style="margin-bottom: 15px; text-align: left;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 8px;">Email Address:</label>
+                    <input type="email" id="portal-username" placeholder="Enter your email..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;">
+                </div>
+
+                <div style="margin-bottom: 20px; text-align: left;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 8px;">Password:</label>
+                    <input type="password" id="portal-passcode" placeholder="Enter password..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;">
+                </div>
+
+                <button id="login-submit-btn" style="width: 100%; padding: 12px; background: #e67e22; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">Access Dashboard</button>
+                <p id="login-error" style="color: red; margin-top: 10px; display: none; font-size: 14px;">❌ Incorrect username or password. Try again!</p>
+                
+                <!-- LINK DIRECTLY TO YOUR NEW SIGNUP FILE -->
+                <p style="margin-top: 20px; font-size: 14px; color: #555;">Don't have an account? <a href="signup.html" style="color: #e67e22; font-weight: bold; text-decoration: none;">Create an account</a></p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: YOUR DUAL-COLUMN MANAGEMENT DASHBOARD -->
+        <div id="private-tracker" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <h1>Paws N' Claws Admin Command Center</h1>
+                <button id="logout-btn" style="padding: 8px 16px; background: #7f8c8d; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">👋 Log Out</button>
+            </div>
+            <p style="margin-bottom: 30px; color: #7f8c8d; text-align: left;">Leash up, log events, and tap start when you begin your active service session.</p>
+
+            <div class="dashboard-grid">
+                <!-- Left Panel: Agenda -->
+                <div class="dashboard-panel">
+                    <h2>📅 Today's Agenda</h2>
+                    <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Select an upcoming appointment to begin your active pet care session.</p>
+                    <div class="agenda-list">
+                        <div class="agenda-item active-walk">
+                            <span class="time-badge">10:00 AM</span>
+                            <div class="walk-details">
+                                <strong>Max (Golden Retriever)</strong>
+                                <p>30-Minute Neighborhood Walk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel: Tracker -->
+                <div class="dashboard-panel">
+                    <h2>⚡ Active Walk Session</h2>
+                    <div style="margin-bottom: 20px; text-align: left; display: flex; gap: 15px; align-items: center;">
+                        <label style="font-weight: bold; color: #2c3e50;">Walk Duration:</label>
+                        <select id="target-duration" style="padding: 8px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; background: white;">
+                            <option value="20">20 Minutes</option>
+                            <option value="30" selected>30 Minutes</option>
+                            <option value="60">60 Minutes</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <button id="start-walk-btn" style="flex: 1; padding: 12px; background: #2ecc71; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">▶️ Start Walk</button>
+                    </div>
+
+                    <div id="timer-box" style="margin: 15px 0; background: #2c3e50; color: #2ecc71; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 24px; font-weight: bold; text-align: center; letter-spacing: 2px;">
+                        ⏱️ <span id="walk-timer">00:00:00</span>
+                        <div id="time-remaining" style="font-size: 14px; margin-top: 5px; color: #bdc3c7; font-family: sans-serif; letter-spacing: normal;">Remaining: --:--</div>
+                    </div>
+
+                    <div class="tracker-box">
+                        <button id="pee-btn" class="track-btn pee">💧 Log Pee</button>
+                        <button id="poop-btn" class="track-btn poop">💩 Log Poop</button>
+                    </div>
+
+                    <div class="stats-box">
+                        <h3>Session Totals:</h3>
+                        <p>Pee breaks: <strong id="pee-count">0</strong></p>
+                        <p>Poop breaks: <strong id="poop-count">0</strong></p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <label for="walk-notes" style="display: block; font-weight: bold; margin-bottom: 8px; color: #2c3e50; text-align: left;">Notes for Owner:</label>
+                        <textarea id="walk-notes" placeholder="How was the walk? Add a fun note about the pet here..." style="width: 100%; height: 80px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 15px; resize: none;"></textarea>
+                    </div>
+                    <!-- NEW: Live Photo Upload Area -->
+<div style="margin-bottom: 25px; text-align: left;">
+    <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #2c3e50;">Add a Walk Photo:</label>
+    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px dashed #ccc; max-width: 400px;">
+        <!-- Hidden real input file button, styled beautifully -->
+        <input type="file" id="walk-photo-input" accept="image/*" capture="environment" style="display: none;">
+        <button type="button" onclick="document.getElementById('walk-photo-input').click()" style="padding: 8px 16px; background: #34495e; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">📸 Take Photo / Upload</button>
+        
+        <!-- Small thumbnail preview image box -->
+        <img id="photo-preview" src="" alt="Preview" style="display: none; width: 100%; max-height: 200px; object-fit: cover; border-radius: 6px; margin-top: 5px;">
+    </div>
+</div>
+
+                    <button id="end-walk-btn" class="end-btn" style="width: 100%;">🛑 End Walk & Generate Report Card</button>
+
+                    <div id="report-card" class="report-card" style="display: none;">
+                        <h2>📋 Paws N' Claws Official Report Card</h2>
+                        <div id="report-content"></div>
+                        <button onclick="window.print()" class="print-btn">🖨️ Print / Save as PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
