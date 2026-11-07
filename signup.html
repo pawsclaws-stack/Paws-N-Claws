@@ -5,49 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account | Paws N' Claws</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Shared Navigation Bar -->
+    <!-- 1. NAVIGATION BAR (Matches All Pages Exactly) -->
     <nav class="navbar">
-        <a href="index.html" class="logo">🐾 Paws N' Claws</a>
+        <a href="index.html" class="logo">
+            <span class="logo-swirls">༺ ฅ ༻</span>
+            <span class="logo-title">Paws N' Claws</span>
+            <span class="logo-tagline">Care for your furry friends</span>
+        </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="login.html" class="cta-btn">Login / Signup</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content Wrapper -->
-    <main class="main-content">
-        <h1>Create Your Account</h1>
-        <p style="margin-bottom: 25px;">Join the Paws N' Claws pack today to manage your pet care schedule.</p>
-        
-        <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; max-width: 400px; margin: 0 auto; border: 1px solid #e2e8f0;">
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label style="display: block; font-weight: bold; margin-bottom: 8px;">Full Name:</label>
-                <input type="text" placeholder="Enter your full name..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;">
-            </div>
-
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label style="display: block; font-weight: bold; margin-bottom: 8px;">Email Address:</label>
-                <input type="email" placeholder="Enter your email address..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;">
-            </div>
-
-            <div style="margin-bottom: 20px; text-align: left;">
-                <label style="display: block; font-weight: bold; margin-bottom: 8px;">Create Password:</label>
-                <input type="password" placeholder="Create a strong password..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;">
-            </div>
-
-            <button id="signup-submit-btn" style="width: 100%; padding: 12px; background: #2ecc71; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;">Register Account</button>
+    <!-- 2. MAIN REGISTRATION WRAPPER -->
+    <div class="login-page-wrapper">
+        <main class="login-container">
             
-            <!-- Link directly back to your standard login page file -->
-            <p style="margin-top: 20px; font-size: 14px; color: #555;">Already have an account? <a href="login.html" style="color: #e67e22; font-weight: bold; text-decoration: none;">Log in instead</a></p>
+            <!-- Frosted Glass Registration Card Box -->
+            <section class="auth-card" id="signup-screen">
+                <div class="auth-header">
+                    <span class="badge">Join the Pack</span>
+                    <h1>Create Your Account</h1>
+                    <p class="subtitle">Join the Paws N' Claws pack today to manage your pet care schedule.</p>
+                </div>
+                
+                <div class="auth-form-body">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name:</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address:</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email address..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Create Password:</label>
+                        <input type="password" id="signup-password" placeholder="Create a strong password..." required>
+                    </div>
+
+                    <button id="signup-submit-btn" class="auth-submit-btn" style="background: #2ecc71; box-shadow: 0 4px 20px rgba(46, 204, 113, 0.3);">Register Account</button>
+                    
+                    <p id="signup-success-msg" style="color: #2ecc71; margin-top: 15px; display: none; font-size: 14px; text-align: center; font-weight: bold;">🎉 Account created! Redirecting to login portal...</p>
+                    
+                    <div class="auth-footer-toggle">
+                        <p>Already have an account? <a href="login.html">Log in instead</a></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+        <!-- 3. SITE FOOTER BRAND STRIP -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Column 1: Brand Info & Instagram Profile Link -->
+            <div class="footer-brand-col">
+                <a href="index.html" class="footer-logo">Paws N' Claws</a>
+                <p>Premium pet care and sparkling home help customized for your busy schedule. We treat your pack and your living space like our absolute own.</p>
+                <a href="https://instagram.com" target="_blank" class="footer-social-link">Follow us on Instagram</a>
+            </div>
+            
+            <!-- Column 2: Quick Navigation Menu -->
+            <div class="footer-links-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Trust, Safety & DC Contact Info -->
+            <div class="footer-safety-col">
+                <h4>Trust & Contact</h4>
+                <p class="footer-phone">📞 <strong>Phone:</strong> (202) 555-0143</p>
+                <p>Fully Licensed, Bonded & Insured</p>
+                <p>100% Background-Checked Staff</p>
+                <p class="footer-region-text">Servicing: H Street Corridor, Capitol Hill, Chinatown, U Street, Florida Ave NE & Maryland Ave NE.</p>
+            </div>
         </div>
-    </main>
-<!-- Make sure this line is at the bottom of signup.html -->
-    <script src="script.js"></script>
+        
+        <!-- Bottom Row: Trademark Copyright Ribbon -->
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 Paws N' Claws Pet Care. All Rights Reserved. Crafted with love for furry companions.</p>
+        </div>
+    </footer>
+
+    <!-- 🌟 LIVE DATABASE SIGNUP CORE ENGINE 🌟 -->
+    <script type="module">
+        // Import your components explicitly from the matching CDN library version string
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://gstatic.com";
+
+        // Your authenticated project credential parameters
+        const firebaseConfig = {
+            apiKey: "AIzaSyBX1-gDb4HBjHEpIw0ZGYpbWcJKFs13Qys",
+            authDomain: "paws-n--claws.firebaseapp.com",
+            projectId: "paws-n--claws",
+            storageBucket: "paws-n--claws.firebasestorage.app",
+            messagingSenderId: "922118177957",
+            appId: "1:922118177957:web:b7953d04261e4e8bedb94c",
+            measurementId: "G-4XTV9YYLRL"
+        };
+
+        // Fire up connection node
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Sign Up submission handler trigger
+        document.getElementById('signup-submit-btn').addEventListener('click', function() {
+            const nameInput = document.getElementById('signup-name').value.trim();
+            const emailInput = document.getElementById('signup-email').value.trim();
+            const passwordInput = document.getElementById('signup-password').value.trim();
+            const successMsg = document.getElementById('signup-success-msg');
+
+            if (nameInput !== "" && emailInput !== "" && passwordInput !== "") {
+                // Dispatch credentials straight to your active Firebase account node
+                createUserWithEmailAndPassword(auth, emailInput, passwordInput)
+                    .then((userCredential) => {
+                        // Store full name locally to customize greeting messages on login
+                        localStorage.setItem('userName', nameInput);
+                        
+                        successMsg.style.display = "block";
+                        
+                        setTimeout(() => {
+                            window.location.href = "login.html"; // Redirect to login
+                        }, 2000);
+                    })
+                    .catch((error) => {
+                        alert("Database Registration Error: " + error.message);
+                    });
+            } else {
+                alert("Please complete all required data fields!");
+            }
+        });
+    </script>
 </body>
 </html>

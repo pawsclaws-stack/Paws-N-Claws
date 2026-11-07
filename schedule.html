@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule a Walk | Paws N' Claws</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- 1. NAVIGATION BAR (Matches All Pages Exactly) -->
     <nav class="navbar">
-        <a href="index.html" class="logo">🐾 Paws N' Claws</a>
+        <a href="index.html" class="logo">
+            <span class="logo-swirls">༺ ฅ ༻</span>
+            <span class="logo-title">Paws N' Claws</span>
+            <span class="logo-tagline">Care for your furry friends</span>
+        </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -19,26 +26,25 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <h1>Book a Pet Adventure</h1>
-        <p>Ready to schedule a walk or pet-sitting session? Choose a convenient time block below to request your next neighborhood stroll!</p>
-        <!-- Your calendar form will go here later! -->
-         <!DOCTYPE html>
-
-        <!-- CALENDAR EMBED BOX -->
-        <div class="booking-container" style="background: white; padding: 20px; border-radius: 12px; max-width: 800px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <!-- 2. MAIN SCHEDULER SYSTEM WRAPPER -->
+    <div class="schedule-page-wrapper">
+        <main class="schedule-container">
             
-            <!-- PASTE YOUR ACUITY IFRAME CODE RIGHT HERE: -->
-            <iframe src="https://acuityscheduling.com..." width="100%" height="800" frameBorder="0"></iframe>
-            
-        </div>
-    </main>
+            <!-- Page Title Block -->
+            <header class="schedule-hero">
+                <span class="badge">Booking Portal</span>
+                <h1>Book a Pet Adventure</h1>
+                <p class="subtitle">Ready to schedule a walk or pet-sitting session? Choose a convenient time block below to request your next neighborhood stroll!</p>
+            </header>
 
-    <script src="script.js"></script>
-</body>
-</html>
-    </main>
+            <!-- CALENDAR EMBED BOX (Updated styles to blend seamlessly with glass theme) -->
+            <div class="booking-container">
+                <!-- PASTE YOUR ACUITY IFRAME CODE RIGHT HERE: -->
+                <iframe src="https://acuityscheduling.com..." width="100%" height="800" frameBorder="0"></iframe>
+            </div>
+
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
