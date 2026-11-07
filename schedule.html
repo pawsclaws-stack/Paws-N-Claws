@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Walk | Paws N' Claws</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION BAR (Matches All Pages Exactly) -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-swirls">༺ ฅ ༻</span>
+            <span class="logo-title">Paws N' Claws</span>
+            <span class="logo-tagline">Care for your furry friends</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="login.html" class="cta-btn">Login / Signup</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. MAIN SCHEDULER SYSTEM WRAPPER -->
+    <div class="schedule-page-wrapper">
+        <main class="schedule-container">
+            
+            <!-- Page Title Block -->
+            <header class="schedule-hero">
+                <span class="badge">Booking Portal</span>
+                <h1>Book a Pet Adventure</h1>
+                <p class="subtitle">Ready to schedule a walk or pet-sitting session? Choose a convenient time block below to request your next neighborhood stroll!</p>
+            </header>
+
+            <!-- CALENDAR EMBED BOX (Updated styles to blend seamlessly with glass theme) -->
+            <div class="booking-container">
+                <!-- PASTE YOUR ACUITY IFRAME CODE RIGHT HERE: -->
+                <iframe src="https://acuityscheduling.com..." width="100%" height="800" frameBorder="0"></iframe>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

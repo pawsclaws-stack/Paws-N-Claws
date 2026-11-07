@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard | Paws N' Claws</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Shared Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🐾 Paws N' Claws</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="login.html" class="cta-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-content" style="max-width: 1400px;">
+        <h1 style="margin-bottom: 5px;">Welcome Back, Pack Member!</h1>
+        <p style="margin-bottom: 30px; color: #7f8c8d;">Manage your pet's schedule, review care summaries, or watch an active walk live.</p>
+
+        <!-- THREE-COLUMN PORTAL GRID -->
+        <div class="client-grid">
+            
+            <!-- COLUMN 1: BOOK A NEW WALK -->
+            <div class="dashboard-panel">
+                <h2>📅 Book a Session</h2>
+                <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Need another neighborhood stroll? Schedule a fast walk appointment instantly below.</p>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px dashed #ccc; text-align: center;">
+                    <p style="font-size: 15px; margin-bottom: 15px; color: #555; font-weight: bold;">Quick Request:</p>
+                    <a href="schedule.html" class="cta-btn" style="display: block; text-align: center; text-decoration: none;">Open Booking Calendar 🗓️</a>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: LIVE MAP LOCATION TRACKER -->
+            <div class="dashboard-panel">
+                <h2>📍 Live Walk Tracker</h2>
+                <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Watch a live map broadcast showing exactly where we are exploring right now.</p>
+                
+                <!-- Map Viewport Shell Box -->
+                <div style="background: #e5e9f0; border-radius: 12px; height: 250px; overflow: hidden; position: relative; border: 1px solid #d8dee9; display: flex; align-items: center; justify-content: center;">
+                    
+                    <!-- We can render a neat interactive neighborhood map model placeholder here! -->
+                    <div style="text-align: center; color: #4c566a; font-weight: bold; font-family: sans-serif; font-size: 14px; padding: 20px; z-index: 10;">
+                        🗺️ Live GPS Stream Active<br>
+                        <span style="font-size: 12px; font-weight: normal; color: #4c566a;">(A map will render showing your pup moving down the block)</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- COLUMN 3: RECENT CARE REPORT CARDS -->
+            <div class="dashboard-panel">
+                <h2>📋 Recent Report Cards</h2>
+                <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Review your historical service records and check potty tallies from our last break.</p>
+                
+                <div class="report-card" style="margin-top: 0; padding: 15px; background: #fff9e6; border: 2px dashed #f1c40f;">
+                    <h3 style="font-size: 16px; color: #d35400; text-align: center; margin-bottom: 10px;">🐾 Last Walk Summary</h3>
+                    <p style="font-size: 13px; margin: 5px 0;"><strong>Status:</strong> Completed successfully!</p>
+                    <p style="font-size: 13px; margin: 5px 0;"><strong>Duration:</strong> 00:30:15 ⏱️</p>
+                    <p style="font-size: 13px; margin: 5px 0;"><strong>Pee Breaks:</strong> 2 💧 | <strong>Poop Breaks:</strong> 1 💩</p>
+                    <p style="font-size: 13px; margin: 10px 0 0 0; font-style: italic; color: #555; background: white; padding: 8px; border-left: 3px solid #e67e22; border-radius: 2px;">
+                        "Max had an absolute blast running through the grass and chasing leaves today!"
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
