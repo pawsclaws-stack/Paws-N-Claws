@@ -196,10 +196,22 @@
             <h2>Subscribe to Our Newsletter</h2>
             <p>Get adorable puppy photo updates, seasonal pet care tips, and exclusive neighborhood discounts delivered straight to your inbox.</p>
             
-            <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Yay! Welcome to the pack! 🐾');">
-                <input type="email" placeholder="Enter your email address..." required class="newsletter-input">
+            <!-- 1. Added target="hidden_iframe" to direct MailerLite to load in the hidden box -->
+            <form class="newsletter-form" id="pastel-newsletter-form" action="https://mailerlite.com" method="POST" target="hidden_iframe">
+                
+                <input type="email" name="fields[email]" placeholder="Enter your email address..." required class="newsletter-input">
+                
+                <div style="display: none;">
+                    <input type="text" name="ml-submit-phone" value="" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+
                 <button type="submit" class="newsletter-submit-btn">Join the Pack</button>
             </form>
+
+            <!-- 2. The secret background helper box -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
         </div>
 
     </div>
@@ -280,7 +292,31 @@
 
 
     </main>
+        <!-- ... all your other HTML sections ... -->
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('pastel-newsletter-form');
+    const iframe = document.getElementById('hidden_iframe');
+    
+    if (form && iframe) {
+        form.addEventListener('submit', function() {
+            const submitBtn = form.querySelector('.newsletter-submit-btn');
+            const inputField = form.querySelector('.newsletter-input');
+
+            // 1. Immediately visually update your buttons
+            submitBtn.innerText = "Sending... 🐾";
+            submitBtn.disabled = true;
+
+            // 2. Wait for the invisible background box to finish receiving the signal 
+            iframe.onload = function() {
+                submitBtn.innerText = "Welcome to the Pack! 🎉";
+                inputField.value = ''; // Clears the input field
+            };
+        });
+    }
+});
+</script>
 </body>
 </html>
 

@@ -779,6 +779,15 @@ p {
     box-shadow: 0 6px 20px rgba(255, 139, 148, 0.6); /* Glow intensifies */
 }
 
+/* Styling for when the button is actively sending data to MailerLite */
+.newsletter-submit-btn:disabled {
+    background-color: var(--dark-pink, #e06d75); /* Locks visual tone to hover pink */
+    cursor: not-allowed;                         /* Subtle indicator that form is sending */
+    transform: none;                             /* Keeps button locked in position */
+    box-shadow: none;                            /* Removes glowing aura temporarily */
+    opacity: 0.85;                               /* Smoothly fades button context */
+}
+
 /* Responsive breakdowns for mobile screens */
 @media (max-width: 650px) {
     .newsletter-card {
