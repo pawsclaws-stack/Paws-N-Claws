@@ -196,20 +196,10 @@
             <h2>Subscribe to Our Newsletter</h2>
             <p>Get adorable puppy photo updates, seasonal pet care tips, and exclusive neighborhood discounts delivered straight to your inbox.</p>
             
-            <!-- Cleaned up form pointing to MailerLite's target class -->
-            <form class="newsletter-form ml-block-form" id="pastel-newsletter-form">
-                
-                <!-- MailerLite reads fields[email] automatically -->
-                <input type="email" name="fields[email]" placeholder="Enter your email address..." required class="newsletter-input">
-                
-                <!-- Your original styled button -->
+            <form class="newsletter-form" id="pastel-newsletter-form">
+                <input type="email" name="fields[email]" id="newsletter-email-input" placeholder="Enter your email address..." required class="newsletter-input">
                 <button type="submit" class="newsletter-submit-btn">Join the Pack</button>
             </form>
-
-            <!-- A hidden success container that your CSS can style if you want -->
-            <div id="newsletter-success-msg" style="display: none; margin-top: 20px; color: #2b2b2b; font-weight: 700;">
-                Welcome to the Pack! 🎉🐾
-            </div>
         </div>
 
     </div>
@@ -291,30 +281,50 @@
 
     </main>
         <!-- ... all your other HTML sections ... -->
-
-    <!-- MailerLite Universal Tracking Script -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://mailerlite.com');
-    ml('account', '2783325'); // Your exact account ID pre-configured
-</script>
-
-<!-- Script to handle button text transition updates safely -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('pastel-newsletter-form');
     
     if (form) {
         form.addEventListener('submit', function(e) {
-            // Let MailerLite's universal script process the subscription request securely
+            e.preventDefault(); // Stops the page from refreshing or opening MailerLite
+
+            const emailInput = document.getElementById('newsletter-email-input');
             const submitBtn = form.querySelector('.newsletter-submit-btn');
+            const emailValue = emailInput.value.trim();
+
+            if (!emailValue) return;
+
+            // 1. Update button visually
             submitBtn.innerText = "Sending... 🐾";
             submitBtn.disabled = true;
 
-            // Wait briefly for data transmission before showing confirmation 
-            setTimeout(function() {
+            // 2. Package the data exactly how MailerLite expects it
+            const formData = new URLSearchParams();
+            formData.append('fields[email]', emailValue);
+            formData.append('ml-submit', '1');
+            formData.append('anticsrf', 'true');
+
+            // 3. Send via fetch with 'no-cors' so the browser never blocks it
+            fetch('https://assets.mailerlite.com/jsonp/2783325/forms/203721631738103350/subscribe', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            })
+            .then(() => {
+                // Success! Update button and clear input
                 submitBtn.innerText = "Welcome to the Pack! 🎉";
-                form.querySelector('.newsletter-input').value = '';
-            }, 1200);
+                emailInput.value = '';
+            })
+            .catch((error) => {
+                console.error('Submission error:', error);
+                alert("Something went wrong. Please check your internet connection.");
+                submitBtn.innerText = "Join the Pack";
+                submitBtn.disabled = false;
+            });
         });
     }
 });
