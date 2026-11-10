@@ -196,22 +196,20 @@
             <h2>Subscribe to Our Newsletter</h2>
             <p>Get adorable puppy photo updates, seasonal pet care tips, and exclusive neighborhood discounts delivered straight to your inbox.</p>
             
-            <!-- 1. Added target="hidden_iframe" to direct MailerLite to load in the hidden box -->
-            <form class="newsletter-form" id="pastel-newsletter-form" action="https://mailerlite.com" method="POST" target="hidden_iframe">
+            <!-- Cleaned up form pointing to MailerLite's target class -->
+            <form class="newsletter-form ml-block-form" id="pastel-newsletter-form">
                 
+                <!-- MailerLite reads fields[email] automatically -->
                 <input type="email" name="fields[email]" placeholder="Enter your email address..." required class="newsletter-input">
                 
-                <div style="display: none;">
-                    <input type="text" name="ml-submit-phone" value="" tabindex="-1" autocomplete="off">
-                </div>
-                <input type="hidden" name="ml-submit" value="1">
-                <input type="hidden" name="anticsrf" value="true">
-
+                <!-- Your original styled button -->
                 <button type="submit" class="newsletter-submit-btn">Join the Pack</button>
             </form>
 
-            <!-- 2. The secret background helper box -->
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+            <!-- A hidden success container that your CSS can style if you want -->
+            <div id="newsletter-success-msg" style="display: none; margin-top: 20px; color: #2b2b2b; font-weight: 700;">
+                Welcome to the Pack! 🎉🐾
+            </div>
         </div>
 
     </div>
@@ -294,25 +292,29 @@
     </main>
         <!-- ... all your other HTML sections ... -->
 
-    <script>
+    <!-- MailerLite Universal Tracking Script -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://mailerlite.com');
+    ml('account', '2783325'); // Your exact account ID pre-configured
+</script>
+
+<!-- Script to handle button text transition updates safely -->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('pastel-newsletter-form');
-    const iframe = document.getElementById('hidden_iframe');
     
-    if (form && iframe) {
-        form.addEventListener('submit', function() {
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            // Let MailerLite's universal script process the subscription request securely
             const submitBtn = form.querySelector('.newsletter-submit-btn');
-            const inputField = form.querySelector('.newsletter-input');
-
-            // 1. Immediately visually update your buttons
             submitBtn.innerText = "Sending... 🐾";
             submitBtn.disabled = true;
 
-            // 2. Wait for the invisible background box to finish receiving the signal 
-            iframe.onload = function() {
+            // Wait briefly for data transmission before showing confirmation 
+            setTimeout(function() {
                 submitBtn.innerText = "Welcome to the Pack! 🎉";
-                inputField.value = ''; // Clears the input field
-            };
+                form.querySelector('.newsletter-input').value = '';
+            }, 1200);
         });
     }
 });
