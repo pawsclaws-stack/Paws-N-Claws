@@ -201,11 +201,10 @@
     </footer>
 
     <!-- 🌟 LIVE DATABASE PORTAL CONTROLLER SCRIPTS 🌟 -->
-    <script type="module">
+        <script type="module">
         import { initializeApp } from "https://gstatic.com";
-        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://gstatic.com";
+        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "https://gstatic.com";
 
-        // Your web app's authenticated Firebase configuration parameters
         const firebaseConfig = {
             apiKey: "AIzaSyBX1-gDb4HBjHEpIw0ZGYpbWcJKFs13Qys",
             authDomain: "://firebaseapp.com",
@@ -223,13 +222,13 @@
         const loginScreen = document.getElementById('login-screen');
         const privateTracker = document.getElementById('private-tracker');
         const resetModal = document.getElementById('password-reset-modal');
+        let peeCount = 0;
+        let poopCount = 0;
 
-        // --- 🔐 PORTAL ACCESSIBILITY GATECHECK ---
         document.getElementById('login-submit-btn').addEventListener('click', function() {
             const emailInput = document.getElementById('portal-username').value.trim();
             const passwordInput = document.getElementById('portal-passcode').value.trim();
 
-            // 1. Maintain manual master developer override backdoor for deployment tests
             if (emailInput === "admin@paws.com" && passwordInput === "paws123") {
                 errorText.style.display = "none";
                 loginScreen.style.display = "none";
@@ -237,31 +236,25 @@
                 return;
             }
 
-            // 2. Otherwise, cross-verify input strings against your live cloud account base
             if (emailInput !== "" && passwordInput !== "") {
                 signInWithEmailAndPassword(auth, emailInput, passwordInput)
-                    .then((userCredential) => {
+                    .then(() => {
                         errorText.style.display = "none";
                         loginScreen.style.display = "none";
-                        privateTracker.style.display = "block"; // Open Command Center
-                        
-                        // Grab saved registration names to personalize greeting strings
+                        privateTracker.style.display = "block";
                         const savedName = localStorage.getItem('userName');
                         if (savedName) {
                             document.querySelector('#private-tracker h1').innerText = `Welcome Back, ${savedName}!`;
                         }
                     })
-                    .catch((error) => {
-                        errorText.style.display = "block"; // Trigger error warning text
-                    });
+                    .catch(() => { errorText.style.display = "block"; });
             } else {
                 alert("Please complete both username and password fields!");
             }
         });
 
-        // --- 👋 SECURE RE-LOCK SYSTEM (LOGOUT) ---
         document.getElementById('logout-btn').addEventListener('click', function() {
-            auth.signOut().then(() => {
+            signOut(auth).then(() => {
                 document.getElementById('portal-username').value = "";
                 document.getElementById('portal-passcode').value = "";
                 privateTracker.style.display = "none";
@@ -269,7 +262,6 @@
             });
         });
 
-        // --- 📬 FULLY AUTOMATED PASSWORD DISPATCH DISCOVERY MODAL ---
         document.getElementById('forgot-pass-trigger').addEventListener('click', function(e) {
             e.preventDefault();
             loginScreen.style.display = "none";
@@ -286,23 +278,25 @@
         document.getElementById('submit-reset-btn').addEventListener('click', function() {
             const resetEmail = document.getElementById('reset-email-input').value.trim();
             if (resetEmail !== "") {
-                // Triggers an automated recovery server packet to dispatch a safe reset link
                 sendPasswordResetEmail(auth, resetEmail)
                     .then(() => {
                         document.getElementById('reset-success-msg').style.display = "block";
-                        setTimeout(() => {
-                            resetModal.style.display = "none";
-                            document.getElementById('reset-success-msg').style.display = "none";
-                            document.getElementById('reset-email-input').value = "";
-                            loginScreen.style.display = "block";
-                        }, 2500);
+                        setTimeout(() => { document.getElementById('close-reset-btn').click(); }, 2500);
                     })
-                    .catch((error) => {
-                        alert("Recovery Dispatch Failure: " + error.message);
-                    });
+                    .catch((error) => { alert("Error: " + error.message); });
             } else {
                 alert("Please fill in a valid email address!");
             }
+        });
+
+        document.getElementById('pee-btn').addEventListener('click', function() {
+            peeCount++;
+            document.getElementById('pee-count').innerText = peeCount;
+        });
+
+        document.getElementById('poop-btn').addEventListener('click', function() {
+            poopCount++;
+            document.getElementById('poop-count').innerText = poopCount;
         });
     </script>
 </body>
