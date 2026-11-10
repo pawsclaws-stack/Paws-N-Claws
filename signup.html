@@ -101,16 +101,15 @@
         </div>
     </footer>
 
-    <!-- 🌟 LIVE DATABASE SIGNUP CORE ENGINE 🌟 -->
-    <!-- FIX: Replaced broken gstatic domain blocks with valid standalone fallback engine libraries -->
+        <!-- 🌟 LIVE DATABASE SIGNUP CORE ENGINE (v13.2.0 Desktop Compatibility Mode) 🌟 -->
     <script src="https://gstatic.com"></script>
     <script src="https://gstatic.com"></script>
 
     <script>
-        // Your authenticated project credential parameters
+        // Your exact web app's official Firebase configuration credentials
         const firebaseConfig = {
             apiKey: "AIzaSyBX1-gDb4HBjHEpIw0ZGYpbWcJKFs13Qys",
-            authDomain: "paws-n--claws.firebaseapp.com", // FIX: Restored missing project ID parameter route
+            authDomain: "paws-n--claws.firebaseapp.com",
             projectId: "paws-n--claws",
             storageBucket: "paws-n--claws.firebasestorage.app",
             messagingSenderId: "922118177957",
@@ -118,7 +117,7 @@
             measurementId: "G-4XTV9YYLRL"
         };
 
-        // Initialize Firebase cleanly without using the locked module system
+        // Initialize Firebase cleanly without modern browser block constraints
         firebase.initializeApp(firebaseConfig);
 
         // Sign Up submission handler trigger
@@ -131,7 +130,7 @@
             const successMsg = document.getElementById('signup-success-msg');
 
             if (nameInput !== "" && emailInput !== "" && passwordInput !== "") {
-                // Connects to your live Firebase backend using traditional syntax rules
+                // Connects using your project parameters over classic script paths
                 firebase.auth().createUserWithEmailAndPassword(emailInput, passwordInput)
                     .then((userCredential) => {
                         localStorage.setItem('userName', nameInput);
