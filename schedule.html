@@ -102,5 +102,29 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navOverlay = document.getElementById('navOverlay');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navOverlay.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    navbar.classList.toggle('menu-open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navOverlay.classList.remove('active');
+      menuToggle.classList.remove('active');
+      navbar.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
