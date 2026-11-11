@@ -202,7 +202,23 @@ body {
    MOBILE MENU STYLES
    ========================================== */
 @media (max-width: 768px) {
-  .navbar {
+  promo-banner {
+    padding: 8px 12px;
+    gap: 6px 10px;
+    font-size: 12.5px;
+  }
+
+  .promo-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .promo-btn {
+    font-size: 12px;
+    padding: 4px 12px;
+  
+  }
+    .navbar {
     top: 78px;
     padding: 14px 5%;
   }
