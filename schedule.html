@@ -11,20 +11,31 @@
 </head>
 <body>
 
-    <!-- 1. NAVIGATION BAR (Matches All Pages Exactly) -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">
-            <span class="logo-swirls">༺ ฅ ༻</span>
-            <span class="logo-title">Paws N' Claws</span>
-            <span class="logo-tagline">Care for your furry friends</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-        </ul>
-    </nav>
+        <!-- 1. NAVIGATION BAR (Matches Front Page Structure Exactly) -->
+     <nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-swirls">༺ ฅ ༻</span>
+    <span class="logo-title">Paws N' Claws</span>
+    <span class="logo-tagline">Care for your furry friends</span>
+  </a>
 
+  <!-- 3-line hamburger button -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </button>
+
+  <!-- Navigation Links (Desktop bar & Mobile Full-Screen Overlay) -->
+  <div class="nav-overlay" id="navOverlay">
+    <span class="mobile-menu-header">Menu</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+    </ul>
+  </div>
+</nav>
     <!-- 2. MAIN SCHEDULER SYSTEM WRAPPER -->
     <div class="schedule-page-wrapper">
         <main class="schedule-container">
