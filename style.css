@@ -205,8 +205,32 @@ body {
   promo-banner {
     padding: 8px 12px;
     gap: 6px 10px;
-    font-size: 12.5px;
+    font-size: 12.5px;  
+  /* Compact Hero Overlay Content for Mobile */
+  .hero-overlay-content {
+    width: 90%;
+    max-width: 420px;
+    padding: 20px 16px;
+    margin-top: 90px; /* Keeps it clear below your lowered logo */
   }
+
+  .hero-overlay-content h1 {
+    font-size: 26px; /* Scales down from giant desktop size */
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .hero-overlay-content p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .hero-overlay-content .pink-cta-btn {
+    font-size: 14px;
+    padding: 11px 22px;
+  }
+}
 
   .promo-badge {
     font-size: 10px;
@@ -273,16 +297,12 @@ body {
   }
 
   /* Switch logo colors to dark burgundy when pink overlay opens */
+  /* Hide the logo when the mobile menu is open */
   .navbar.menu-open .logo {
-    filter: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
-  .navbar.menu-open .logo-swirls,
-  .navbar.menu-open .logo-title,
-  .navbar.menu-open .logo-tagline {
-    color: #3a1824;
-    border-color: #3a1824;
-  }
-
   /* Full-Screen Pastel Pink Overlay */
   .nav-overlay {
     position: fixed;
