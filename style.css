@@ -219,11 +219,11 @@ body {
   
   }
     .navbar {
-    top: 78px;
+    top: 165px;
     padding: 14px 5%;
   }
     body.subpage {
-    padding-top: 165px;
+    padding-top: 250px;
     background-color: #0b1d3a;
   }
 
