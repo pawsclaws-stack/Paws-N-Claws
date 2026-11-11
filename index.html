@@ -33,18 +33,30 @@
     <a href="schedule.html" class="promo-btn">Book Now &rarr;</a>
   </div>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <span class="logo-swirls">༺ ฅ ༻</span>
-      <span class="logo-title">Paws N' Claws</span>
-      <span class="logo-tagline">Care for your furry friends</span>
-    </a>
+ <nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-swirls">༺ ฅ ༻</span>
+    <span class="logo-title">Paws N' Claws</span>
+    <span class="logo-tagline">Care for your furry friends</span>
+  </a>
+
+  <!-- 3-line hamburger button -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </button>
+
+  <!-- Navigation Links (Desktop bar & Mobile Full-Screen Overlay) -->
+  <div class="nav-overlay" id="navOverlay">
+    <span class="mobile-menu-header">Menu</span>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="schedule.html">Schedule</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 </header>
 
     <!-- 2. THE RESTORED VIDEO HERO BANNER -->
@@ -332,6 +344,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navOverlay = document.getElementById('navOverlay');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navOverlay.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    navbar.classList.toggle('menu-open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navOverlay.classList.remove('active');
+      menuToggle.classList.remove('active');
+      navbar.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
 </body>
 </html>
 

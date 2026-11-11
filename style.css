@@ -47,7 +47,6 @@ body {
 }
 
 .promo-banner {
-  /* Soft pastel pink gradient */
   background: linear-gradient(90deg, #ffe3ec 0%, #ffd1e0 100%);
   color: #3a1824;
   display: flex;
@@ -62,10 +61,9 @@ body {
   box-shadow: 0 2px 10px rgba(58, 24, 36, 0.06);
   position: sticky;
   top: 0;
-  z-index: 1001; /* Raised above navbar so the button is clickable */
+  z-index: 1002;
 }
 
-/* Small pill tag for the offer label */
 .promo-badge {
   background-color: rgba(255, 255, 255, 0.7);
   color: #8f2447;
@@ -82,7 +80,6 @@ body {
   text-align: center;
 }
 
-/* Modern pill-shaped button */
 .promo-btn {
   background-color: #3a1824;
   color: #ffffff;
@@ -100,133 +97,231 @@ body {
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    /* 🔴 THE FIXES TO MAKE IT INVISIBLE & FLOAT 🔴 */
-    background-color: transparent; /* Forces the browser color to vanish */
-    position: absolute;            /* Sits the navbar right over your background content */
-    top: 48px;                     /* Moved down below the promo banner */
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;        /* Stops the 5% padding from stretching the bar too wide */
-    z-index: 1000;                 /* Keeps it layered on top of images/text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: transparent;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
 }
 
-/* 🌟 THE BRAND BADGE CONTAINER 🌟 */
+/* THE BRAND BADGE CONTAINER */
 .logo {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;    
-    align-items: center;       
-    text-align: center;
-    padding: 6px 12px;
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
-    transition: transform 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6px 12px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 1001;
 }
 
-/* 🌟 STYLING FOR THE FANCY SWIRLS ABOVE THE TOP LINE 🌟 */
 .logo-swirls {
-    color: rgba(255, 255, 255, 0.85); /* Pure elegant off-white */
-    font-size: 16px;                  /* Keep them delicate and small */
-    letter-spacing: 4px;              /* Gives the curls room to breathe */
-    margin-bottom: -2px;              /* Gently locks them right onto the top line */
-    display: block;
-    font-family: serif;               /* Forces a classic cursive flourish rendering */
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  letter-spacing: 4px;
+  margin-bottom: -2px;
+  display: block;
+  font-family: serif;
+  transition: color 0.3s ease;
 }
 
-/* THE MAIN TITLE (UNCHANGED, FRAMED BY LINES) */
 .logo-title {
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    
-    border-top: 2px solid #ffffff;     
-    border-bottom: 2px solid #ffffff;  
-    width: 100%;                       
-    display: block;
-    transition: letter-spacing 0.3s ease;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  width: 100%;
+  display: block;
+  transition: letter-spacing 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* THE TAGLINE BELOW THE BOTTOM LINE */
 .logo-tagline {
-    color: #e0e0e0;            
-    font-size: 11px;           
-    font-weight: 600;
-    text-transform: uppercase; 
-    letter-spacing: 2px;       
-    margin-top: 8px;           
-    display: block;
+  color: #e0e0e0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  display: block;
+  transition: color 0.3s ease;
 }
 
-/* Interaction animations */
 .logo:hover {
-    transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 .logo:hover .logo-title {
-    letter-spacing: 1.5px;      
+  letter-spacing: 1.5px;
 }
 
-/* 🌟 THE FIX: Forces the nav links to sit side-by-side instead of stacking 🌟 */
+/* DESKTOP NAV LINKS */
 .nav-links {
-    display: flex;             /* Lines up the <li> items horizontally */
-    align-items: center;       /* Centers them vertically with each other */
-    list-style: none;          /* Removes default bullet points if you have them */
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Adds breathing room between each button */
 .nav-links li {
-    margin-left: 30px;         /* Creates uniform spacing between your links */
+  margin-left: 30px;
 }
 
-/* Ensure your text styling remains sharp and visible */
 .nav-links a {
-    color: #faf9f9; 
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
+  color: #faf9f9;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--dark-pink); 
+  color: var(--dark-pink);
 }
 
-/* Call to Action Button (Login / Signup) */
-.cta-btn {
-    background-color: var(--primary-pink);
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none; /* Safely removes underlines */
-    transition: transform 0.2s, background-color 0.3s, box-shadow 0.2s;
-    
-    /* 🌟 THE FLOATING GLOW FIX 🌟 */
-    /* Adds a soft pink aura that separates the button from both grass and sky */
-    box-shadow: 0 4px 15px rgba(255, 139, 148, 0.4); 
+/* HIDE MOBILE ELEMENTS ON DESKTOP */
+.menu-toggle,
+.mobile-menu-header {
+  display: none;
 }
 
-.cta-btn:hover {
-    background-color: var(--dark-pink);
-    transform: scale(1.05);
-    box-sizing: border-box;
-    box-shadow: 0 6px 20px rgba(255, 139, 148, 0.6); /* Glow intensifies on hover */
-}
-
-/* Keeps the logo clear of the banner on narrow phone screens */
+/* ==========================================
+   MOBILE MENU STYLES
+   ========================================== */
 @media (max-width: 768px) {
-    .navbar {
-        top: 78px;
-    }
+  .navbar {
+    top: 78px;
+    padding: 14px 5%;
+  }
+
+  .logo-title {
+    font-size: 20px;
+  }
+  .logo-tagline {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  /* 3-Line Hamburger Button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+  }
+
+  .menu-toggle .line {
+    width: 26px;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* Animate 3 lines into an X & turn burgundy when open */
+  .menu-toggle.active .line {
+    background-color: #3a1824;
+    box-shadow: none;
+  }
+  .menu-toggle.active .line:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active .line:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Switch logo colors to dark burgundy when pink overlay opens */
+  .navbar.menu-open .logo {
+    filter: none;
+  }
+  .navbar.menu-open .logo-swirls,
+  .navbar.menu-open .logo-title,
+  .navbar.menu-open .logo-tagline {
+    color: #3a1824;
+    border-color: #3a1824;
+  }
+
+  /* Full-Screen Pastel Pink Overlay */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, #fff5f8 0%, #ffe3ec 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    z-index: 1000;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* "MENU" Heading at the Top of the Open Menu */
+  .mobile-menu-header {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #8f2447;
+    margin-top: 80px;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid rgba(58, 24, 36, 0.2);
+    width: 140px;
+    text-align: center;
+  }
+
+  /* Centered Navigation Buttons */
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+  }
+
+  .nav-links a {
+    color: #3a1824;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: 6px 20px;
+  }
+
+  .nav-links a:hover {
+    color: #8f2447;
+  }
 }
 /* ==========================================
    3. FULL BLEED HERO BANNER & CONTAINERS
