@@ -206,6 +206,9 @@ body {
     top: 78px;
     padding: 14px 5%;
   }
+    body.subpage {
+    padding-top: 165px;
+  }
 
   .logo-title {
     font-size: 20px;
